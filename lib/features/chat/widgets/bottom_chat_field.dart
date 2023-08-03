@@ -75,7 +75,6 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
 
   void sendFileMessage(File file, MessageEnum messageEnum) {
     dev.log("sendFileMessage_UI");
-
     ref
         .read(chatControlerProvider)
         .sendFileMessage(context, widget.recieverUserId, messageEnum, file);
@@ -198,7 +197,7 @@ void openAudio() async {
                             icon: const Icon(
                               Icons.camera_alt,
                             ),
-                            onPressed: () {
+                            onPressed: () async {
                               selectImage();
                               dev.log("sendFileMessage_IconBotton");
                             },

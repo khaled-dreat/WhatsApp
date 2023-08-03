@@ -178,7 +178,7 @@ class ChatRepostry {
     required File file,
     required String reciverUserId,
     required UserModel senderUserData,
-    required MessageReply messageReply,
+    required MessageReply? messageReply,
     required ProviderRef ref,
     //* يستخدم لتحديد نوع الرسالة
     required MessageEnum messageEnum,
@@ -245,7 +245,7 @@ class ChatRepostry {
     required String gifUrl,
     required String recieverUserId,
     required UserModel senderUser,
-    required MessageReply messageReply,
+    required MessageReply? messageReply,
   }) async {
     try {
       var timeSend = DateTime.now();
@@ -282,7 +282,7 @@ class ChatRepostry {
     required File file,
     required String reciverUserId,
     required UserModel senderUserData,
-    required MessageReply messageReply,
+    required MessageReply? messageReply,
     required ProviderRef ref,
     //* يستخدم لتحديد نوع الرسالة
     required MessageEnum messageEnum,

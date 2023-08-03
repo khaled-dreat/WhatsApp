@@ -1,5 +1,13 @@
 part of "../../../utils/import/app_import.dart";
 
+final chatControllerProvider = Provider((ref) {
+  final chatRepository = ref.watch(chatrepositoryProvider);
+  return ChatController(
+    chatRepostry: chatRepository,
+    ref: ref,
+  );
+});
+
 class ChatController {
   final ChatRepostry chatRepostry;
   final ProviderRef ref;
@@ -32,7 +40,7 @@ class ChatController {
             senderUserData: value!,
             ref: ref,
             messageEnum: messageEnum,
-            messageReply: messageReply!));
+            messageReply: messageReply));
     ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
@@ -51,7 +59,7 @@ class ChatController {
             gifUrl: newGifUrl,
             recieverUserId: recverUserId,
             senderUser: value!,
-            messageReply: messageReply!));
+            messageReply: messageReply));
   }
 
   Stream<List<ChatContact>> chatContact() {
