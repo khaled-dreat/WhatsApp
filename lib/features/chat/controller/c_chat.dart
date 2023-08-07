@@ -25,6 +25,7 @@ class ChatController {
             recieverUserId: recieverUserId,
             senderUser: value!,
             messageReply: messageReply));
+    ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
   void sendFileMessage(BuildContext context, String recverUserId,
@@ -60,6 +61,7 @@ class ChatController {
             recieverUserId: recverUserId,
             senderUser: value!,
             messageReply: messageReply));
+    ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
   Stream<List<ChatContact>> chatContact() {
@@ -68,5 +70,10 @@ class ChatController {
 
   Stream<List<MessageModel>> chatStream(String reciverUserId) {
     return chatRepostry.getChatStream(reciverUserId);
+  }
+
+  void setChatMessageSeen(
+      BuildContext context, String recverUserId, String messageId) {
+    chatRepostry.setChatMessageSeen(context, recverUserId, messageId);
   }
 }

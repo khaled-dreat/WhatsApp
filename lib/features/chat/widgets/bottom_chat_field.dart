@@ -227,7 +227,7 @@ void openAudio() async {
             Padding(
               padding: const EdgeInsets.only(bottom: 8, left: 2, right: 2),
               child: CircleAvatar(
-                backgroundColor: Color(0xFF128C7E),
+                backgroundColor: const Color(0xFF128C7E),
                 radius: 25,
                 child: GestureDetector(
                   onTap: sendTextmessage,
@@ -261,7 +261,7 @@ void openAudio() async {
                   },
                 ),
               )
-            : SizedBox()
+            : const SizedBox()
       ],
     );
   }

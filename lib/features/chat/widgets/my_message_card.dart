@@ -7,6 +7,7 @@ class MyMessageCard extends StatelessWidget {
   final VoidCallback onLiftSwipe;
   final String replyedMesaage;
   final String userName;
+  final bool isSeen;
   final MessageEnum replyMessagetype;
   const MyMessageCard({
     Key? key,
@@ -17,6 +18,7 @@ class MyMessageCard extends StatelessWidget {
     required this.replyedMesaage,
     required this.userName,
     required this.replyMessagetype,
+    required this.isSeen,
   }) : super(key: key);
 
   @override
@@ -95,10 +97,10 @@ class MyMessageCard extends StatelessWidget {
                       const SizedBox(
                         width: 5,
                       ),
-                      const Icon(
-                        Icons.done_all,
+                      Icon(
+                        isSeen ? Icons.done_all : Icons.done_all,
                         size: 20,
-                        color: Colors.white60,
+                        color: isSeen ? Colors.blue : Colors.white60,
                       ),
                     ],
                   ),

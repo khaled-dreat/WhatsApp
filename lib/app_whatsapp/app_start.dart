@@ -17,14 +17,14 @@ class MyWhatsApp extends ConsumerWidget {
               home: ref.watch(userDataAuthProvider).when(
                     data: (user) {
                       if (user == null) {
-                        return LandingScreen();
+                        return const LandingScreen();
                       }
-                      return MobileLayoutScreen();
+                      return const MobileLayoutScreen();
                     },
                     error: (error, stackTrace) {
                       return;
                     },
-                    loading: () => Loader(),
+                    loading: () => const Loader(),
                   ),
             ));
   }

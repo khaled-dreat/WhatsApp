@@ -3,8 +3,10 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:enough_giphy_flutter/enough_giphy_flutter.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart';
+import 'package:story_view/story_view.dart';
 import 'package:swipe_to/swipe_to.dart';
 import 'package:uuid/uuid.dart';
 import 'package:country_picker/country_picker.dart';
@@ -29,11 +31,12 @@ part '../../app_whatsapp/app_start.dart';
 part '../../features/auth/controller/c_auth.dart';
 part '../../features/select_contact/controller/c_select_contact.dart';
 part '../../features/chat/controller/c_chat.dart';
-
+part '../../features/states/controller/c_status.dart';
 // ? ************************ Model **************************
 part '../../model/m_user.dart';
 part '../../model/chat_contact.dart';
 part '../../model/message.dart';
+part '../../model/m_states.dart';
 // ************************ Utils **************************
 part '../route/app_route.dart';
 part '../theme/app_color.dart';
@@ -44,6 +47,7 @@ part "../../common/repositories/common_firebase_storage_repository.dart";
 part "../../features/chat/repository/chat_repository.dart";
 part '../../common/enum/message_enum.dart';
 part "../../common/providers/message_reply_providers.dart";
+part "../../features/states/repostry/states_repstre.dart";
 // ************************ View **************************
 part '../../features/chat/screens/mobile_chat_screen.dart';
 part '../../screens/mobile_layout_screen.dart';
@@ -56,6 +60,9 @@ part '../../features/auth/screens/user.informtion_screens.dart';
 part '../../features/select_contact/repostry/select_contact_repostry.dart';
 part '../../features/select_contact/screens/select_contact_sereen.dart';
 part '../../features/chat/widgets/bottom_chat_field.dart';
+part '../../features/states/screens/states_contacts_screen.dart';
+part "../../features/states/screens/confirm_states_screen.dart";
+part '../../features/states/screens/stutes_screen.dart';
 // ************************ Widgets **************************
 part '../../features/chat/widgets/chat_list.dart';
 part '../../features/chat/widgets/contacts_list.dart';

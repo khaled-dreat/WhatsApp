@@ -9,10 +9,12 @@ class MobileLayoutScreen extends ConsumerStatefulWidget {
 }
 
 class _MobileLayoutScreenState extends ConsumerState<MobileLayoutScreen>
-    with WidgetsBindingObserver {
+    with WidgetsBindingObserver, TickerProviderStateMixin {
+  late TabController tabBarController;
   @override
   void initState() {
     super.initState();
+    tabBarController = TabController(length: 3, vsync: this);
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -66,6 +68,7 @@ class _MobileLayoutScreenState extends ConsumerState<MobileLayoutScreen>
             ),
           ],
           bottom: TabBar(
+            controller: tabBarController,
             indicatorColor: AppColors.tabColor,
             indicatorWeight: 4,
             labelColor: AppColors.tabColor,
@@ -86,10 +89,21 @@ class _MobileLayoutScreenState extends ConsumerState<MobileLayoutScreen>
             ],
           ),
         ),
-        body: const ContactsList(),
+        body: TabBarView(controller: tabBarController, children: const [
+          ContactsList(),
+          StatesContactsScreen(),
+          Text("Call")
+        ]),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            AppRoute.go(context, SelectContactScreen.nameRoute);
+          onPressed: () async {
+            if (tabBarController.index == 0) {
+              AppRoute.go(context, SelectContactScreen.nameRoute);
+            } else {
+              File? pickImeag = await pickImageFromGallery(context);
+              if (pickImeag != null) {
+                AppRoute.goMaterial(context, ConfirmStatesScreen(pickImeag));
+              }
+            }
           },
           backgroundColor: AppColors.tabColor,
           child: const Icon(

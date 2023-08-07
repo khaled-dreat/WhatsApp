@@ -345,4 +345,29 @@ class ChatRepostry {
       showSnackBar(context: context, msg: e.toString());
     }
   }
+
+  void setChatMessageSeen(
+      BuildContext context, String recverUserId, String messageId) async {
+    try {
+      await firestore
+          .collection('user')
+          .doc(auth.currentUser!.uid)
+          .collection('chat')
+          .doc(recverUserId)
+          .collection('message')
+          .doc(messageId)
+          .update({'isSeen': true});
+
+      await firestore
+          .collection('user')
+          .doc(recverUserId)
+          .collection('chat')
+          .doc(auth.currentUser!.uid)
+          .collection('message')
+          .doc(messageId)
+          .update({'isSeen': true});
+    } catch (e) {
+      showSnackBar(context: context, msg: e.toString());
+    }
+  }
 }

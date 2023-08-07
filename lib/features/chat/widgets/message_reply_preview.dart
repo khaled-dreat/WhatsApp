@@ -10,7 +10,11 @@ class MessageReplyPreview extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final msgReply = ref.watch(messageReplyProvider);
     return Container(
-      width: 300,
+      width: 350,
+      decoration: const BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12), topRight: Radius.circular(12))),
       padding: const EdgeInsets.all(8),
       child: Column(children: [
         Row(
@@ -18,23 +22,21 @@ class MessageReplyPreview extends ConsumerWidget {
             Expanded(
                 child: Text(
               msgReply!.isMe ? 'Me' : 'Opposite',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             )),
             InkWell(
               onTap: () => cancelReply(ref),
-              child: Icon(
+              child: const Icon(
                 Icons.close,
                 size: 16,
               ),
             )
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
-        Text(
-          msgReply.msg,
-        )
+        DisplayTextImageGif(msg: msgReply.msg, type: msgReply.messageEnum)
       ]),
     );
   }
