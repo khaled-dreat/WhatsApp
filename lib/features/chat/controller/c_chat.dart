@@ -15,8 +15,8 @@ class ChatController {
     required this.chatRepostry,
     required this.ref,
   });
-  void sendTextMessage(
-      BuildContext context, String text, String recieverUserId) {
+  void sendTextMessage(BuildContext context, String text, String recieverUserId,
+      bool isGroupChat) {
     final messageReply = ref.read(messageReplyProvider);
     ref.read(userDataAuthProvider).whenData((value) =>
         chatRepostry.sendTextMessage(
@@ -24,29 +24,36 @@ class ChatController {
             text: text,
             recieverUserId: recieverUserId,
             senderUser: value!,
-            messageReply: messageReply));
+            messageReply: messageReply,
+            isGroupChat: isGroupChat));
     ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
-  void sendFileMessage(BuildContext context, String recverUserId,
-      MessageEnum messageEnum, File file) {
+  void sendFileMessage(
+    BuildContext context,
+    String recverUserId,
+    MessageEnum messageEnum,
+    File file,
+    bool isGroupChat,
+  ) {
     dev.log("sendFileMessage_conrtoller");
     final messageReply = ref.read(messageReplyProvider);
 
     ref.read(userDataAuthProvider).whenData((value) =>
-        chatRepostry.sendFileMessage(
+        chatRepostry.sendFileMesssage(
             context: context,
             file: file,
             reciverUserId: recverUserId,
             senderUserData: value!,
             ref: ref,
             messageEnum: messageEnum,
-            messageReply: messageReply));
+            messageReply: messageReply,
+            isGroupChat: isGroupChat));
     ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
-  void sendGIFMessage(
-      BuildContext context, String recverUserId, String gifUrl) {
+  void sendGIFMessage(BuildContext context, String recverUserId, String gifUrl,
+      bool isGroupChat) {
     final messageReply = ref.read(messageReplyProvider);
 
     int gifUrlPartIndex = gifUrl.lastIndexOf('-') + 1;
@@ -60,7 +67,8 @@ class ChatController {
             gifUrl: newGifUrl,
             recieverUserId: recverUserId,
             senderUser: value!,
-            messageReply: messageReply));
+            messageReply: messageReply,
+            isGroupChat: isGroupChat));
     ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
@@ -68,8 +76,16 @@ class ChatController {
     return chatRepostry.getChatContact();
   }
 
+  Stream<List<ModelGroup>> chatGroup() {
+    return chatRepostry.getChatGroup();
+  }
+
   Stream<List<MessageModel>> chatStream(String reciverUserId) {
     return chatRepostry.getChatStream(reciverUserId);
+  }
+
+  Stream<List<MessageModel>> chatGroupStream(String groupId) {
+    return chatRepostry.getGroupChatStream(groupId);
   }
 
   void setChatMessageSeen(

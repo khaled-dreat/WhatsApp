@@ -31,11 +31,13 @@ part '../../app_whatsapp/app_start.dart';
 part '../../features/auth/controller/c_auth.dart';
 part '../../features/select_contact/controller/c_select_contact.dart';
 part '../../features/chat/controller/c_chat.dart';
+part "../../features/group/controller/c_group.dart";
 part '../../features/states/controller/c_status.dart';
 // ? ************************ Model **************************
 part '../../model/m_user.dart';
 part '../../model/chat_contact.dart';
 part '../../model/message.dart';
+part "../../model/m_group.dart";
 part '../../model/m_states.dart';
 // ************************ Utils **************************
 part '../route/app_route.dart';
@@ -47,7 +49,9 @@ part "../../common/repositories/common_firebase_storage_repository.dart";
 part "../../features/chat/repository/chat_repository.dart";
 part '../../common/enum/message_enum.dart';
 part "../../common/providers/message_reply_providers.dart";
+part "../../features/group/repostry/group_repostre.dart";
 part "../../features/states/repostry/states_repstre.dart";
+part "../../config/agora_config.dart";
 // ************************ View **************************
 part '../../features/chat/screens/mobile_chat_screen.dart';
 part '../../screens/mobile_layout_screen.dart';
@@ -63,6 +67,7 @@ part '../../features/chat/widgets/bottom_chat_field.dart';
 part '../../features/states/screens/states_contacts_screen.dart';
 part "../../features/states/screens/confirm_states_screen.dart";
 part '../../features/states/screens/stutes_screen.dart';
+part '../../features/group/screens/create_group_screen.dart';
 // ************************ Widgets **************************
 part '../../features/chat/widgets/chat_list.dart';
 part '../../features/chat/widgets/contacts_list.dart';
@@ -79,4 +84,5 @@ part '../../common/widgets/loader.dart';
 part '../../features/chat/widgets/display_text_imege_gif.dart';
 part "../../features/chat/widgets/video_plyer_item.dart";
 part "../../features/chat/widgets/message_reply_preview.dart";
+part "../../features/group/widgets/select_contact_group.dart";
 /************************************* */

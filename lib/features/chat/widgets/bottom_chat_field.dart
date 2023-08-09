@@ -8,8 +8,10 @@ final chatControlerProvider = Provider(
 );
 
 class BottomChatField extends ConsumerStatefulWidget {
-  const BottomChatField(this.recieverUserId, {super.key});
+  const BottomChatField(this.recieverUserId, this.isGroupChat, {super.key});
   final String recieverUserId;
+  final bool? isGroupChat;
+
   @override
   ConsumerState<BottomChatField> createState() => _BottomChatFieldState();
 }
@@ -27,7 +29,10 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
   void sendTextmessage() async {
     if (isSowwSendButton) {
       ref.read(chatControlerProvider).sendTextMessage(
-          context, _messageController.text.trim(), widget.recieverUserId);
+          context,
+          _messageController.text.trim(),
+          widget.recieverUserId,
+          widget.isGroupChat!);
       setState(() {
         _messageController.text = "";
       });
@@ -75,9 +80,8 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
 
   void sendFileMessage(File file, MessageEnum messageEnum) {
     dev.log("sendFileMessage_UI");
-    ref
-        .read(chatControlerProvider)
-        .sendFileMessage(context, widget.recieverUserId, messageEnum, file);
+    ref.read(chatControlerProvider).sendFileMessage(
+        context, widget.recieverUserId, messageEnum, file, widget.isGroupChat!);
   }
 
   void selectImage() async {
@@ -99,9 +103,8 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
   void selectGIF() async {
     final gif = await pickGIF(context);
     if (gif != null) {
-      ref
-          .read(chatControlerProvider)
-          .sendGIFMessage(context, widget.recieverUserId, gif.url);
+      ref.read(chatControlerProvider).sendGIFMessage(
+          context, widget.recieverUserId, gif.url, widget.isGroupChat!);
     }
   }
 

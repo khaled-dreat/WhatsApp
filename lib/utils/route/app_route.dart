@@ -8,6 +8,7 @@ class AppRoute {
     MobileLayoutScreen.nameRoute: (context) => const MobileLayoutScreen(),
     SelectContactScreen.nameRoute: (context) => const SelectContactScreen(),
     MobileChatScreen.nameRoute: (context) => const MobileChatScreen(),
+    CreatGroupScreen.nameRoute: (context) => const CreatGroupScreen(),
     //OTPScreen.nameRoute: (context) => const OTPScreen(),
   };
   // * inti Route
