@@ -44,5 +44,5 @@ A completely Responsive Whatsapp UI App- that works on Android, iOS, Web & Deskt
 
 
    
-Thanks to Eng. Almohsen Myya for following up\n
+Thanks to Eng. Almohsen Myya for following up<\br>
 Thanks to Mr. Rivaan Ranawat for his excellent explanation
