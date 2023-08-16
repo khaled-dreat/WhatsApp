@@ -1,22 +1,48 @@
 
 # Whatsapp UI
 
-A completely Responsive Whatsapp UI App- works on Android, iOS, Web & Desktop! Works as WhatsApp App on Smaller Screen Sizes and WhatsApp Web on Bigger Screen Sizes!
+A completely Responsive Whatsapp UI App- that works on Android, iOS, Web & Desktop! Works as WhatsApp App on Smaller Screen Sizes and WhatsApp Web on Bigger Screen Sizes!
 
 
+# What I learned
+* Phone Authentication in Firebase
+* Using Country Picker Package
+* Extract the SHA1 key from the project
+* Phone Number Authentication Using Firebase Authentication
+* Add File To Firebase Storage
+* Preview Data Form FireBase
+* Use Stream Builder
+* Play sounds in the app
+* Play Video in the app
+* Use Riverpod Manage State
 
-## Demo
-https://hungry-lichterman-63f0f3.netlify.app/#/
 
-## Installation
-After cloning this repository, migrate to ```whatsapp-flutter-ui``` folder. There, run the following commands:
-```bash
-  flutter pub get
-  open -a simulator (to get iOS Simulator)
-  flutter run
-  flutter run -d chrome --web-renderer html (to see the best output)
-```
-    
-## Feedback
+# Packages
 
-If you have any feedback, please reach out to me at namanrivaan@gmail.com
+ * cupertino_icons
+ * firebase_auth
+ * firebase_core
+ * flutter_screenutil
+ * country_picker
+ * cloud_firestore
+ * top_snackbar_flutter
+ * flutter_riverpod
+ * image_picker
+ * firebase_storage
+ * flutter_contacts
+ * uuid
+ * intl
+ * video_player
+ * cached_network_image
+ * emoji_picker_flutter
+ * enough_giphy_flutter
+ * flutter_sound
+ * permission_handler
+ * audioplayers
+ * swipe_to
+ * story_view
+
+
+   
+Thanks to Eng. Almohsen Myya for following up
+Thanks to Mr. Rivaan Ranawat for his excellent explanation
