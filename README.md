@@ -42,7 +42,8 @@ A completely Responsive Whatsapp UI App- that works on Android, iOS, Web & Deskt
  * swipe_to
  * story_view
 
-
+</br>
+</br>
    
 Thanks to Eng. Almohsen Myya for following up</br>
 Thanks to Mr. Rivaan Ranawat for his excellent explanation
